@@ -1,0 +1,22 @@
+.lkebtn{
+    border:none;
+    height:1.5rem;
+    min-width:1px;
+    width:2px;
+    border-radius:20px;
+    color:white;
+    position:relative;
+    bottom:4rem;
+    left:15rem;
+}
+.cmntbtn{
+    border:none;
+    height:1.5rem;
+    min-width:1px;
+    width:2px;
+    border-radius:20px;
+    color:white;
+    position:absolute;
+    bottom:2.8rem;
+    left:16rem;
+}
