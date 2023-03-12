@@ -1,6 +1,6 @@
- import React from "react"
- import phoneImg from "./hfhfh.png"
- import img1 from ".././images/img2.jpg"
+ import React, { useState } from "react"
+import { useNavigate } from 'react-router-dom';
+import img1 from ".././images/img2.jpg"
  import img2 from ".././images/img3.jpg"
  import img3 from ".././images/img6.jpeg"
  import img4 from ".././images/img7.jpg"
@@ -16,12 +16,24 @@ import { makeStyles } from '@mui/styles';
 import { CarouselProvider, Slider, Slide,Image } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import "./Login.css"
+import validator from "validator";
+
+
+var pswdRglrExpn = /^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
 
 
 
+let  lgnClick=()=>{
+  console.log("login click")
+ 
+};
 
  function Login(){
 
+  const[userEmail,setUserEmail]=useState("")
+  const[password,setPassword]=useState("")
+
+  const navigate = useNavigate();
   const useStyles=makeStyles({
    
   login:{
@@ -71,17 +83,23 @@ import "./Login.css"
       <CardContent >
         
        
-        <TextField fullWidth id="outlined-basic" label="Email" variant="outlined" margin='dense' size='small'/>
-        <TextField fullWidth id="outlined-basic" label="Password" variant="outlined" margin='dense' size='small'/>
+        <TextField error={(userEmail!="")?!(validator.isEmail(userEmail)):false} className="mail" fullWidth id="outlined-basic " label="Email" variant="outlined" margin='dense' size='small' 
+        onChange={(e)=>{setUserEmail(e.target.value)}}/>
+        <TextField error={(password!="")?!(pswdRglrExpn.test(password)):false} fullWidth id="outlined-basic password" label="Password" variant="outlined" margin='dense' size='small'
+        onChange={(e)=>{setPassword(e.target.value)}}/>
 
         <Button disableRipple fullWidth  component="label" >Forgot Password?</Button>
-        <Button  fullWidth variant="contained" >Login</Button>
+       
+       
+        <Button  fullWidth variant="contained" onClick={lgnClick} >Login</Button>
 
          
         </CardContent>
       
       </Card>
-      <Button disableRipple className={classes.login}  variant="outlined">Don't have an account ? Signup</Button>
+      <Button disableRipple className={classes.login}  variant="outlined"
+       onClick={()=>{navigate('\SignUp')}}
+      >Don't have an account ? Signup</Button>
       </div>
 
     </div>

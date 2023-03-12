@@ -3,6 +3,7 @@ import ReactDom from "react-dom"
 import Navbar from "./Navbar";
 import Upload from "./Upload";
 import ReelCard from "./ReelCard";
+//import "./Home.css"
 
 function Home(){
     return(

@@ -9,7 +9,7 @@ import MovieFilterIcon from '@mui/icons-material/MovieFilter';
 function Upload(){
 return(
    
-    <Button variant="outlined" component="label" style={{color:"#A569BD" ,border:"1px solid #A569BD"}}>
+    <Button variant="outlined" component="label" style={{color:"#A569BD" ,border:"1px solid #A569BD" ,marginLeft:"4.7rem"}}>
     <MovieFilterIcon />
        Upload Video
   <input hidden accept="video/*" multiple type="file" />

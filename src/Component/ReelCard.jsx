@@ -4,12 +4,11 @@ import CardCover from '@mui/joy/CardCover';
 import CardContent from '@mui/joy/CardContent';
 import Typography from '@mui/joy/Typography';
 import Avatar from '@mui/joy/Avatar';
-import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Button from '@mui/material/Button';
-import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
 import { makeStyles } from '@mui/styles';
 import ModeCommentIcon from '@mui/icons-material/ModeComment';
+import "./ReelCard.css"
 
 let lkebtnClick=()=>{
 
@@ -25,8 +24,8 @@ export default function GradientCover() {
               
                 
                 position: "absolute",
-                bottom: "2.5rem",
-                left: "3.7rem"
+                bottom: "0.5rem",
+                left: "1rem"
               },
               hjhj:{marginTop:"20px"}
              
