@@ -1,0 +1,47 @@
+.commentText
+{
+    /* color:#D0D0D0 !important; */
+ 
+    color:#888888 !important;
+    display:flex;
+    width:20rem;
+    height:1.5rem;
+    margin: 7px;
+    
+    /* //font-family: serif; */
+    border: 2px solid #A9A9A9 !important;
+    border-radius: 7px !important;
+    /* justify-content: flex-end; */
+    align-items:center; 
+    padding: 2.5px;
+    padding-left: 5px;
+    padding-right: 10px;
+    font-weight: 1.5rem;
+    overflow: hidden;
+    word-break: break-word;
+
+    /* font-family: Rubik Pixels; */
+  
+}
+/* .commentText:active
+{ border: 2px solid #A9A9A9 !important;}
+/* .commentText:focus
+{ border: 2px solid #A9A9A9 !important;} */
+.commentText:focus-visible
+{ outline: none;}
+
+.text:focus-visible
+{ outline: none;}
+.SendBtn
+{
+    align-self:flex-end !important;
+    color:	#BEBEBE !important;
+    height:2.8rem !important;
+    width:2rem !important;
+
+
+}
+ .SendBtn:hover
+ {
+    cursor: pointer;
+ }

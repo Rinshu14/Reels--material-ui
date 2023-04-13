@@ -1,0 +1,18 @@
+.commentCard
+{  
+      width:24.5rem;
+      display:none;
+      flex-direction:column-reverse;
+      border:2px solid #484848;
+      background-color:#383838;
+      overflow: scroll;
+      height:482px;
+      width:315px;
+      position:fixed;
+      top:8.2rem;
+      left:51.08rem;
+
+}
+.commentCard::-webkit-scrollbar{
+    display: none;
+  }

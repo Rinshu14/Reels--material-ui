@@ -1,0 +1,32 @@
+.PrevcommentText
+{
+     margin: 7px;
+     /* margin-left: 5rem; */
+    color:#D0D0D0 !important;
+    display:flex;
+    width:18rem;
+    height:1.5rem;
+    
+    border: 2px solid #A9A9A9 !important;
+    border-radius: 7px !important;
+    
+    align-items:center; 
+    padding: 2.5px;
+    padding-left: 5px;
+    padding-right: 10px;
+    
+    font-weight: 1.5rem;
+    overflow: hidden;
+
+    
+
+    /* font-family: Rubik Pixels; */
+  
+}
+/* .commentText:active
+{ border: 2px solid #A9A9A9 !important;}
+/* .commentText:focus
+{ border: 2px solid #A9A9A9 !important;} */
+.commentText:focus-visible
+{ outline: none;}
+ 
