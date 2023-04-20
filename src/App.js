@@ -8,23 +8,14 @@ import React,{useContext,useState} from "react"
 import UserData from "./Context/UserData"
 import userContext from "./Context/userContext"
 import { PostData } from "./Context/PostData";
-import Comment from "./Component/CommentBox"
-import PrevComments from "./Component/PrevComments"
-import CommentCard from "./Component/CommentCard";
-
+import ForgotPassword from "./Component/ForgotPassword"
 
 
 
 function App() {
 
 
-  // const[userDetails,setUserDetails]=useState({
-  //   email:"rinshu@ghg.com",
-  //   password:"Rinshu@14",
-  //   isAuth:"true"
   
-  // })
-
 
 
   return (

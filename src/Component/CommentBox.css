@@ -4,12 +4,12 @@
  
     color:#888888 !important;
     display:flex;
-    width:20rem;
+    width:21rem;
     height:1.5rem;
     margin: 7px;
     
     /* //font-family: serif; */
-    border: 2px solid #A9A9A9 !important;
+    border: 2px solid #7393B3 !important;
     border-radius: 7px !important;
     /* justify-content: flex-end; */
     align-items:center; 
@@ -23,19 +23,32 @@
     /* font-family: Rubik Pixels; */
   
 }
-/* .commentText:active
-{ border: 2px solid #A9A9A9 !important;}
-/* .commentText:focus
-{ border: 2px solid #A9A9A9 !important;} */
-.commentText:focus-visible
-{ outline: none;}
 
+.commentText:focus-visible
+{ outline: none;
+    border: 2px solid#89CFF0 !important;
+    color:	#888888 !important;
+}
+.commentText:focus-within
+{
+    border: 2px solid #3F00FF !important;
+
+}
+.commentText:focus
+{
+    border: 2px solid #3F00FF !important;
+}
 .text:focus-visible
-{ outline: none;}
+{ outline: none;
+   
+    color:	#404040 !important;
+}
+
+
 .SendBtn
 {
     align-self:flex-end !important;
-    color:	#BEBEBE !important;
+    color:	#1F51FF !important;
     height:2.8rem !important;
     width:2rem !important;
 

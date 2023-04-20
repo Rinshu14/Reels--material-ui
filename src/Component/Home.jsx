@@ -33,6 +33,7 @@ useEffect(()=>{
         tempPost.sort(function(x, y){
             return y.time - x.time;
         })
+       
         SetPostcollection([...tempPost])
       });
 },[])
@@ -49,16 +50,16 @@ await setDoc(doc(database, "posts",`${userDeatils.userDetails.uid+postCollection
 },{ merge: true });
 }
 
-async function postComment(Pid)
-{
- console.log("pid=="+Pid)
+// async function postComment(Pid)
+// {
+//  console.log("pid=="+Pid)
 
- let idx=postCollection.findIndex((post)=>(post.pid==Pid))
+//  let idx=postCollection.findIndex((post)=>(post.pid==Pid))
 
-await setDoc(doc(database, "posts",`${userDeatils.userDetails.uid+postCollection[idx].name}`), {
-   like:[...postCollection[idx].like,userDeatils.userDetails.uid]
-},{ merge: true });
-}
+// await setDoc(doc(database, "posts",`${userDeatils.userDetails.uid+postCollection[idx].name}`), {
+//    like:[...postCollection[idx].like,userDeatils.userDetails.uid]
+// },{ merge: true });
+// }
 
     return(
         <>
@@ -66,10 +67,11 @@ await setDoc(doc(database, "posts",`${userDeatils.userDetails.uid+postCollection
         <Navbar/>
         <div classname="home" style={{width:"300px",margin:"auto",marginTop:"25px"}}>
         <Upload />
-       <div className="videos disableVideoDiv" style={{height:"490px" ,width:"315px" , overflow:"scroll",scrollSnapType:"y mandatory",marginTop:"20px"}}>
+       <div className="videos" style={{height:"487px", overflow:"scroll",scrollSnapType:"y mandatory",marginTop:"20px",borderRadius:"15px"}}>
         {
          postCollection.map((item)=>{
-          return <ReelCard postData={item} postLike={postLike} postComment/>
+          // console.log(item)
+        return <ReelCard postData={item} postLike={postLike} />
         })
          }
        </div>

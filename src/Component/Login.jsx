@@ -19,7 +19,7 @@ import "./Login.css"
 import validator from "validator";
 import userContext from "../Context/userContext";
 import AlertModal from "../Component/AlertModal"
-
+import ForgotPassword from "./ForgotPassword"
 
 var pswdRglrExpn = /^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
 
@@ -37,6 +37,7 @@ var pswdRglrExpn = /^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[a-zA-Z0-9
   const[password,setPassword]=useState("")
   const[diagBoxError,setdiagBoxError]=useState("")
   const [open, setOpen] = useState(false);
+  const [restPswdFlag, setrestPswdFlag] = useState(false);
 
   const navigate = useNavigate();
 
@@ -57,7 +58,7 @@ var pswdRglrExpn = /^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[a-zA-Z0-9
   const classes=useStyles();
 
 async function lgnClick(){
-  console.log("login click")
+  
  let error= await userDeatils.signIn(userEmail,password);
 
   if(error=="invalid username or password")
@@ -67,11 +68,25 @@ async function lgnClick(){
  }
  
 };
+function FrgtPswdClck()
+{
+ 
+  setrestPswdFlag(!restPswdFlag)
+
+
+
+  
+}
 
 const handleClickOpen = () => {
- console.log("handle open")
+ 
   setOpen(true);
   };
+  const handlerestPswdFlag = () => {
+ 
+    setrestPswdFlag(false);
+    };
+  
 
   const handleClose = () => {
     setdiagBoxError("");
@@ -120,7 +135,7 @@ const handleClickOpen = () => {
         <TextField error={(password!="")?!(pswdRglrExpn.test(password)):false} fullWidth id="outlined-basic password" label="Password" variant="outlined" margin='dense' size='small'
         onChange={(e)=>{setPassword(e.target.value)}}/>
 
-        <Button disableRipple fullWidth  component="label" >Forgot Password?</Button>
+        <Button disableRipple fullWidth  component="label" onClick={FrgtPswdClck} >Forgot Password?</Button>
        
        
         <Button  fullWidth variant="contained" onClick={
@@ -140,6 +155,8 @@ const handleClickOpen = () => {
       >Don't have an account ? Signup</Button>
       </div>
       <AlertModal open={open} handleClose={handleClose} diagBoxError={diagBoxError}/>
+
+      <ForgotPassword flag={restPswdFlag} setflag={FrgtPswdClck}/>
     </div>
     
   )

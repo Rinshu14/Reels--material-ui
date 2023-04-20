@@ -79,7 +79,7 @@ return(
 
 {
 postCollection.map((item)=>{
-          return  <Card sx={{ height: '300px', width: '150px' ,margin:"20px"}} >
+          return  <Card sx={{ height: '300px', width: '150px' ,margin:"20px",borderRadius:"15px"}} >
           <CardCover>
             
              <video

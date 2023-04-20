@@ -4,8 +4,8 @@
      /* margin-left: 5rem; */
     color:#D0D0D0 !important;
     display:flex;
-    width:18rem;
-    height:1.5rem;
+    width:14rem;
+    /* height:1.5rem; */
     
     border: 2px solid #A9A9A9 !important;
     border-radius: 7px !important;
@@ -16,11 +16,12 @@
     padding-right: 10px;
     
     font-weight: 1.5rem;
-    overflow: hidden;
-
-    
-
-    /* font-family: Rubik Pixels; */
+    overflow-wrap: normal;
+  
+   /* overflow: scroll; */
+   
+ 
+   
   
 }
 /* .commentText:active
@@ -29,4 +30,12 @@
 { border: 2px solid #A9A9A9 !important;} */
 .commentText:focus-visible
 { outline: none;}
- 
+
+/* .bnjh
+{
+    overflow: scroll;
+}
+.bnjh::-webkit-scrollbar{
+    display: none;
+  }
+  */

@@ -83,7 +83,7 @@ const userDetails=useContext(userContext)
          let isError=(e.target.value!="")?!(validator.isEmail(e.target.value)):false;
          setEmailError(isError);
          if(isError==false){
-          console.log("in if of email")
+         
           setUserEmail(e.target.value)
           
           
@@ -116,7 +116,7 @@ const userDetails=useContext(userContext)
         }} />
 </Button>
 <Button  className={classes.button} fullWidth variant="contained" onClick={()=>{
-  if(!passError && !emailError){console.log("in if")
+  if(!passError && !emailError){
   
   userDetails.signUp(userEmail,password,userName,profImg) }
   else

@@ -1,8 +1,9 @@
 .videos::-webkit-scrollbar{
     display: none;
   }
-  .disableVideoDiv
+  /* .disableVideoDiv
   {
-    pointer-events:fill;
-    opacity: 0.8;
-  }
+    pointer-events:none;
+    opacity: 0.5;
+  } */
+  

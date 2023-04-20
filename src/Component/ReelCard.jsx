@@ -16,17 +16,27 @@ import { ToggleOff } from '@material-ui/icons';
 import CommentCard from "./CommentCard";
 
 
-function toggleMute()
-  {
-    
-    console.log("intoggle")
-  }
+
  
 export default function ReelCard(props) {
- 
+
+ let [isComment,SetIsComment]=useState(false)
   let cmntBtnClick=()=>{
-    (window.getComputedStyle(document.querySelector(".commentCard")).display=="none")?document.querySelector(".commentCard").style.display="flex":document.querySelector(".commentCard").style.display="none"
- document.querySelector(".videos").classList.contains("disableVideoDiv")
+    
+if(isComment==false)
+{
+ 
+  document.querySelector(".videos").style.overflow="hidden"
+SetIsComment(true)
+}
+else
+{
+  SetIsComment(false)
+ 
+  document.querySelector(".videos").style.overflow="scroll"
+
+}
+    
   }
   
 
@@ -46,8 +56,8 @@ export default function ReelCard(props) {
           })
         
 const classes=useStyles();
-  return (
-<Card className={classes.hjhj } sx={{ minHeight: '200px', width: '280px'}} >
+  return (<>
+<Card key={props.postData.pid} className={`${classes.hjhj} video-card` } sx={{ minHeight: '200px', width: '280px'}} >
       <CardCover>
      
          <video
@@ -57,8 +67,7 @@ const classes=useStyles();
          id={`${props.postData.pid}`}
          
            // poster={`${props.postData.postUrl}`}
-          onClick={()=>{console.log("inclick")}}   
-          onEnded={()=>{console.log("in ended")}}
+         
           > <source
           src={`${props.postData.postUrl}`}
           type="video/mp4"
@@ -68,21 +77,23 @@ const classes=useStyles();
       </CardCover>
     
       <CardContent sx={{justifyContent: 'flex-end' }}>
-      <p className="post_id " style={{display:"none"}}>{props.postData.pid}</p>
+      <p className="post_id" style={{display:"none"}}>{props.postData.pid}</p>
       <Avatar
-         src={`${userDetails.userDetails.profImg}`}
+         src={`${props.postData.userProfileImage}`}
           size="sm"
           sx={{ '--Avatar-size': '2.5rem' }}
         />
         <Typography className={classes.userName} level="h2" fontSize="lg" textColor="#fff" mb={1}>
-         {userDetails.userDetails.userName}
+         {props.postData.userName}
         </Typography>
        <Button className="lkebtn" disableRipple variant="outlined"  onClick={()=>{ props.postLike(props.postData.pid)}}>
           {props.postData.like.includes(userDetails.userDetails.uid)?<FavoriteIcon style={{color:"red"}}/>:<FavoriteBorderIcon/> }
         </Button>
         <Button className="cmntbtn" disableRipple variant="outlined" onClick={cmntBtnClick}><ModeCommentIcon/></Button>
       </CardContent>
-   <CommentCard/>
+   
     </Card>
+    {isComment?<CommentCard key={props.postData.pid} dispFlag={isComment}/>:<></>}
+    </>
   );
 }
