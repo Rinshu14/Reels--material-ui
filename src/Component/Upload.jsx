@@ -9,15 +9,17 @@ import userContext from '../Context/userContext';
 import { v4 as uuid } from 'uuid';
 import { getStorage, ref ,uploadBytes,getDownloadURL,uploadBytesResumable} from "firebase/storage";
 import LinearProgress, { LinearProgressProps } from '@mui/material/LinearProgress';
+// import LinearProgress from '@mui/material/LinearProgress';
 
 function Upload(){
 
   const [open, setOpen] = useState(false);
 
-  const [uploadProgress, setUploadProgress] = useState(0);
+  const [uploadProgress, setUploadProgress] = useState(false);
   const[diagBoxError,setdiagBoxError]=useState("")
   const userDeatils=useContext(userContext)
   const storage = getStorage();
+  
 
   
   const handleClickOpen = () => {
@@ -33,26 +35,10 @@ async function upload(file)
 {  
 
  const storageRef = ref(storage,`post\\${file.name}`);
- let  uploadTask= uploadBytesResumable(storageRef, file)
-//  console.log(typeof ff)
+ setUploadProgress(true)
+  await uploadBytesResumable(storageRef, file)
+ 
 
-
- uploadTask.on('state_changed', 
-  (snapshot) => {
-    // Observe state change events such as progress, pause, and resume
-    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    setUploadProgress(progress)
-   // console.log('Upload is ' + progress + '% done');
-    // switch (snapshot.state) {
-    //   case 'paused':
-    //     console.log('Upload is paused');
-    //     break;
-    //   case 'running':
-    //     console.log('Upload is running');
-    //     break;
-  //   }
-  })
  let videoUrl=await getDownloadURL(storageRef)
   
 
@@ -72,6 +58,8 @@ let postId ='p'+ uuid();
        time:Date.now()
 
     });
+
+    setUploadProgress(false)
 
   }
   
@@ -99,6 +87,7 @@ let postId ='p'+ uuid();
 </Button>
 
 <AlertModal open={open} handleClose={handleClose} diagBoxError={diagBoxError}/>
+{uploadProgress ? <LinearProgress style={{marginTop:"10px",height:"0.3rem"}}/> : <></>}
 </>
 )
 }

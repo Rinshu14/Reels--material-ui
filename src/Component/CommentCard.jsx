@@ -17,55 +17,14 @@ function CommentCard(props) {
   const database = getFirestore();
   const databaseRef = collection(database, "comments");
 
-  //  async function  useEffectCall()
-  //  {
-  //   console.log("useeefct")
-
-  //  const database = getFirestore();
-  //   const q = query(collection(database, "posts"), where("pid", "==", document.querySelector(".post_id").innerText));
-
-  // let path;
-  //   const querySnapshot = await getDocs(q);
-  // querySnapshot.forEach((doc) => {path=doc.data().comment});
-
-  //  console.log(path)
-
-  //   onSnapshot(databaseRef, docsSnap => { 
-
-  //      let tempPost=[];
-
-  //      docsSnap.forEach((doc) => {
-  //        if(!tempPost.includes(doc.data()))
-  //        {
-  //        tempPost.push(doc.data())
-  //        }
-
-  //      })
-  //      tempPost.sort(function(x, y){
-  //          return y.time - x.time;
-  //      })
-  //     //  if(chngState=true){
-  //      SetprevCommetnsCollection([...tempPost])}
-  //    );
-
-  //    return () => {
-  //     // cancel the request before component unmounts
-  //     // chngState=false;
-  //     console.log("return")
-
-
-  // };
-
-  // }
-
-  //useEffect(useEffectCall,[])
+ 
   useEffect(() => {
 
     async function Call() {
 
 
       const database = getFirestore();
-      ////// const q = query(collection(database, "posts"), where("pid", "==", document.querySelector(".post_id").innerText));
+
       const q = query(collection(database, "posts"), where("pid", "==",props.postId));
       let path;
       const querySnapshot = await getDocs(q);
@@ -77,13 +36,7 @@ function CommentCard(props) {
         let tempPost=[]
         docsSnap.forEach((doc) => {
           if (!tempPost.includes(doc.data())) {
-          //  if(path.includes(doc.data().commentId))
-          //  {
-          //   tempPost.push(doc.data())
-          //  }
-           
-
-           // tempPost.push(doc.data())
+         
 
           if(doc.data().pid==props.postId)
           {
@@ -105,32 +58,7 @@ function CommentCard(props) {
 
    Call();
    
-  //   onSnapshot(databaseRef, docsSnap => {
-     
-  //    let path= Call();
-  // let tempPost
-  // console.log("onsnap")
-  //     docsSnap.forEach((doc) => {
-  //       if (!tempPost.includes(doc.data())) {
-  //        if(path.includes(doc.data().commentId))
-  //        {
-  //         tempPost.push(doc.data())
-  //        }
-         
-
-  //        // tempPost.push(doc.data())
-  //       }
-
-  //     })
-  //     tempPost.sort(function (x, y) {
-  //       return y.time - x.time;
-  //     })
-  //     //  if(chngState=true){
-  //       console.log(tempPost)
-  //     SetprevCommetnsCollection([...tempPost])
-  //   }
-  //   );
-
+  
 
 
 
@@ -142,9 +70,9 @@ function CommentCard(props) {
 
   }, [])
 
-  // console.log("coll=="+prevCommetnsCollection[0]+"\n"+prevCommetnsCollection[1]+"\n"+prevCommetnsCollection[2]+"\n")
+ 
   return (
-    // <div className="new_div" style={{position:"fixed",top:"14rem",left:"28rem",overflow: "scroll"}}>
+    
     <div className="commentCard" >
 
       <Comment postId={props.postId}/>

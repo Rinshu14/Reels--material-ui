@@ -127,7 +127,6 @@ function UserData({ children }) {
     }
   }, [userDetails])
 
-  // useEffect(isAnyUserLoggedIn,[])
 
   useEffect(() => {
 

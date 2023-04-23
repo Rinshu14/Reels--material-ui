@@ -31,17 +31,15 @@ export default function ReelCard(props) {
 
     let observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        //  entry.target.innerText = `${Math.round(entry.intersectionRatio * 100)}%`
+       
         if (entry.isIntersecting) {
 
-          // console.log(entry.target.querySelector("video"))
-          // entry.target.querySelector("video").autoplay = true
-          // console.log(entry.target.querySelector("video").autoplay)
+          
           entry.target.querySelector("video").play()
-          console.log(entry.target.querySelector("video").muted)
+         
           entry.target.querySelector("video").muted=false
           console.log(entry.target.querySelector("video").muted)
-          // entry.target.querySelector("video").muted=false
+     
         }
         else
         {
@@ -55,7 +53,7 @@ export default function ReelCard(props) {
     videos.forEach((video) => {
       observer.observe(video)
     })
-    //observer.observe(document.querySelector(".video-card"));
+  
 
 
     return (() => { 

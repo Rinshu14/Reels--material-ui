@@ -35,11 +35,7 @@ useEffect(()=>{
         SetPostcollection([...tempPost])
       });
 
-      let options = {
-        //     root: document.querySelector(".videos"),
-           
-            threshold: 1.0,
-          };
+   
           
          
    
