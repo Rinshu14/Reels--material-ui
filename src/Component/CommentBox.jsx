@@ -6,7 +6,7 @@ import userContext from "../Context/userContext"
 import { v4 as uuid } from 'uuid';
 
 
-function CommentBox()
+function CommentBox(props)
 {
   
   const userDetails=useContext(userContext)
@@ -37,12 +37,13 @@ let path;
 querySnapshot.forEach((doc) => {path=doc.data()});
 
 await setDoc(doc(database, "comments",`${cmntId}`), {
-      pid:(document.querySelector(".post_id").innerText),
+      pid:props.postId,
       comment:document.querySelector(".text").innerText,
       userName:userDetails.userDetails.userName,
       userProfImg:userDetails.userDetails.profImg,
       userId:userDetails.userDetails.uid,
-      time:Date.now()
+      time:Date.now(),
+      commentId:cmntId
 
 
       });

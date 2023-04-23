@@ -56,7 +56,7 @@ async function upload(file)
  let videoUrl=await getDownloadURL(storageRef)
   
 
-let postId = uuid();
+let postId ='p'+ uuid();
 
 
     await setDoc(doc(database,"posts",`${userDeatils.userDetails.uid+file.name}`), 

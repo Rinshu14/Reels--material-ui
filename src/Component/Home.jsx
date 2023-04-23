@@ -11,19 +11,17 @@ import "./Home.css"
 
 
 function Home(){
-
-   // const post=useContext(postContext)
-    const[postCollection,SetPostcollection]=useState([]);
+ 
+  
+  const[postCollection,SetPostcollection]=useState([]);
      const userDeatils =useContext(userData)
     const database = getFirestore();
    const databaseRef = collection(database, "posts");
 
 useEffect(()=>{
     onSnapshot(databaseRef, docsSnap => { 
-       // SetPostcollection([])
-        let tempPost=[];
-        
-        docsSnap.forEach((doc) => {
+      let tempPost=[];
+       docsSnap.forEach((doc) => {
           if(!tempPost.includes(doc.data()))
           {
           tempPost.push(doc.data())
@@ -36,30 +34,29 @@ useEffect(()=>{
        
         SetPostcollection([...tempPost])
       });
+
+      let options = {
+        //     root: document.querySelector(".videos"),
+           
+            threshold: 1.0,
+          };
+          
+         
+   
 },[])
 
 
 async function postLike(Pid)
 {
- console.log("pid=="+Pid)
 
  let idx=postCollection.findIndex((post)=>(post.pid==Pid))
-
-await setDoc(doc(database, "posts",`${userDeatils.userDetails.uid+postCollection[idx].name}`), {
-   like:[...postCollection[idx].like,userDeatils.userDetails.uid]
+ 
+ await setDoc(doc(database, "posts",`${postCollection[idx].userId+postCollection[idx].name}`), {
+ like:[...postCollection[idx].like,userDeatils.userDetails.uid]
 },{ merge: true });
 }
 
-// async function postComment(Pid)
-// {
-//  console.log("pid=="+Pid)
 
-//  let idx=postCollection.findIndex((post)=>(post.pid==Pid))
-
-// await setDoc(doc(database, "posts",`${userDeatils.userDetails.uid+postCollection[idx].name}`), {
-//    like:[...postCollection[idx].like,userDeatils.userDetails.uid]
-// },{ merge: true });
-// }
 
     return(
         <>
@@ -70,7 +67,6 @@ await setDoc(doc(database, "posts",`${userDeatils.userDetails.uid+postCollection
        <div className="videos" style={{height:"487px", overflow:"scroll",scrollSnapType:"y mandatory",marginTop:"20px",borderRadius:"15px"}}>
         {
          postCollection.map((item)=>{
-          // console.log(item)
         return <ReelCard postData={item} postLike={postLike} />
         })
          }

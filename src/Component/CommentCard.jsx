@@ -65,21 +65,31 @@ function CommentCard(props) {
 
 
       const database = getFirestore();
-      const q = query(collection(database, "posts"), where("pid", "==", document.querySelector(".post_id").innerText));
-
+      ////// const q = query(collection(database, "posts"), where("pid", "==", document.querySelector(".post_id").innerText));
+      const q = query(collection(database, "posts"), where("pid", "==",props.postId));
       let path;
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => { path = doc.data().comment });
 
-
+     console.log( path)
 
       onSnapshot(databaseRef, docsSnap => {
-
-        let tempPost = [];
-
+        let tempPost=[]
         docsSnap.forEach((doc) => {
           if (!tempPost.includes(doc.data())) {
+          //  if(path.includes(doc.data().commentId))
+          //  {
+          //   tempPost.push(doc.data())
+          //  }
+           
+
+           // tempPost.push(doc.data())
+
+          if(doc.data().pid==props.postId)
+          {
             tempPost.push(doc.data())
+          }
+
           }
 
         })
@@ -87,12 +97,47 @@ function CommentCard(props) {
           return y.time - x.time;
         })
         //  if(chngState=true){
+          console.log(tempPost)
         SetprevCommetnsCollection([...tempPost])
       }
       );
     }
 
-    Call();
+   Call();
+   
+  //   onSnapshot(databaseRef, docsSnap => {
+     
+  //    let path= Call();
+  // let tempPost
+  // console.log("onsnap")
+  //     docsSnap.forEach((doc) => {
+  //       if (!tempPost.includes(doc.data())) {
+  //        if(path.includes(doc.data().commentId))
+  //        {
+  //         tempPost.push(doc.data())
+  //        }
+         
+
+  //        // tempPost.push(doc.data())
+  //       }
+
+  //     })
+  //     tempPost.sort(function (x, y) {
+  //       return y.time - x.time;
+  //     })
+  //     //  if(chngState=true){
+  //       console.log(tempPost)
+  //     SetprevCommetnsCollection([...tempPost])
+  //   }
+  //   );
+
+
+
+
+
+
+
+
 
 
   }, [])
@@ -100,9 +145,9 @@ function CommentCard(props) {
   // console.log("coll=="+prevCommetnsCollection[0]+"\n"+prevCommetnsCollection[1]+"\n"+prevCommetnsCollection[2]+"\n")
   return (
     // <div className="new_div" style={{position:"fixed",top:"14rem",left:"28rem",overflow: "scroll"}}>
-    <div className="commentCard" onKeyUp={() => { console.log("keydown") }} >
+    <div className="commentCard" >
 
-      <Comment />
+      <Comment postId={props.postId}/>
       <div className="divx">
         {prevCommetnsCollection.map((e) => {
 

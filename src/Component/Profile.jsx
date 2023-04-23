@@ -25,7 +25,9 @@ function Profile(){
         docsSnap.forEach((doc) => {
           if(!tempPost.includes(doc.data()))
           {
-          tempPost.push(doc.data())
+            if(doc.data().userId==userDetails.userDetails.uid)
+            {tempPost.push(doc.data())}
+          //tempPost.push(doc.data())
           }
        
         })
@@ -44,7 +46,7 @@ return(
     <div className="prof_img" style={{backgroundImage:`url(${userDetails.userDetails.profImg})`}}></div>
     <div style={{marginTop:"1.5rem",marginLeft:"25rem"}}>
         <p >{`Email :${userDetails.userDetails.email}`}</p>
-        <p >{`post : 3`}</p>
+        <p >{`Post  : ${postCollection.length}`}</p>
       
     </div>
     
