@@ -108,8 +108,7 @@ const userDetails=useContext(userContext)
        {setdiagBoxError("Please upload file less than 10kb");
         handleClickOpen()}
        else{
-        // setProfImg(URL.createObjectURL(e.target.files[0]));
-        //console.log(e.target.files[0].name)
+     
         setProfImg(e.target.files[0]);
       }
     

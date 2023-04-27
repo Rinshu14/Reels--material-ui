@@ -19,7 +19,7 @@ function Profile(){
 
   useEffect(()=>{
     onSnapshot(databaseRef, docsSnap => { 
-       // SetPostcollection([])
+       
         let tempPost=[];
         
         docsSnap.forEach((doc) => {
@@ -27,7 +27,7 @@ function Profile(){
           {
             if(doc.data().userId==userDetails.userDetails.uid)
             {tempPost.push(doc.data())}
-          //tempPost.push(doc.data())
+       
           }
        
         })
@@ -58,26 +58,7 @@ return(
    <div className="upload-section">
     
 
-  {/* <Card sx={{ height: '300px', width: '150px' ,margin:"20px"}} >
-      <CardCover>
-        
-         <video
-            autoPlay
-            loop
-            muted
-            key={}
-            poster="https://assets.codepen.io/6093409/river.jpg"
-          > <source
-          src="https://assets.codepen.io/6093409/river.mp4"
-          type="video/mp4"
-        />
-      </video>
-      </CardCover>
-     
-    
-
-    </Card> */}
-
+  
 
 {
 postCollection.map((item)=>{
@@ -89,7 +70,7 @@ postCollection.map((item)=>{
                 loop
                 muted
                 key={`${item.pid}`}
-                //poster="https://assets.codepen.io/6093409/river.jpg"
+               
                 poster={`${item.postUrl}`}
               > <source
               src={`${item.postUrl}`}
@@ -107,81 +88,7 @@ postCollection.map((item)=>{
 
 
 
-    {/* <Card sx={{ height: '300px', width: '150px' ,margin:"20px" }} >
-      <CardCover>
-        
-         <video
-            autoPlay
-            loop
-            muted
-            poster="https://assets.codepen.io/6093409/river.jpg"
-          > <source
-          src="https://assets.codepen.io/6093409/river.mp4"
-          type="video/mp4"
-        />
-      </video>
-      </CardCover>
-      </Card>
-      <Card sx={{ height: '300px', width: '150px' ,margin:"20px" }} >
-      <CardCover>
-        
-         <video
-            autoPlay
-            loop
-            muted
-            poster="https://assets.codepen.io/6093409/river.jpg"
-          > <source
-          src="https://assets.codepen.io/6093409/river.mp4"
-          type="video/mp4"
-        />
-      </video>
-      </CardCover>
-      </Card>
-      <Card sx={{ height: '300px', width: '150px' ,margin:"20px" }} >
-      <CardCover>
-        
-         <video
-            autoPlay
-            loop
-            muted
-            poster="https://assets.codepen.io/6093409/river.jpg"
-          > <source
-          src="https://assets.codepen.io/6093409/river.mp4"
-          type="video/mp4"
-        />
-      </video>
-      </CardCover>
-      </Card>
-      <Card sx={{ height: '300px', width: '150px' ,margin:"20px" }} >
-      <CardCover>
-        
-         <video
-            autoPlay
-            loop
-            muted
-            poster="https://assets.codepen.io/6093409/river.jpg"
-          > <source
-          src="https://assets.codepen.io/6093409/river.mp4"
-          type="video/mp4"
-        />
-      </video>
-      </CardCover>
-      </Card>
-      <Card sx={{ height: '300px', width: '150px' ,margin:"20px" }} >
-      <CardCover>
-        
-         <video
-            autoPlay
-            loop
-            muted
-            poster="https://assets.codepen.io/6093409/river.jpg"
-          > <source
-          src="https://assets.codepen.io/6093409/river.mp4"
-          type="video/mp4"
-        />
-      </video>
-      </CardCover>
-      </Card> */}
+   
 </div>
    </>
 

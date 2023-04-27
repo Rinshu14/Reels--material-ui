@@ -6,8 +6,15 @@
     border-radius:20px !important;
     color:white !important;
     position:relative !important;
-    bottom:2rem;
+    bottom:2.2rem;
     left:15rem;
+}
+.likeCount{
+  
+    color:white;
+    position : absolute;
+    left: 16.6rem;
+    bottom: 2.3rem;
 }
 .cmntbtn{
     border:none !important;

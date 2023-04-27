@@ -27,8 +27,7 @@ const navigate =useNavigate();
       <div className='profile-img' style={{backgroundImage:`url(${userDetails.userDetails.profImg})`}} onClick={()=>{dropDown() }}></div>
    
     </div>
-    {/* <div className="drpdwn" style={{display:"none" ,color:"#787878" ,border:"2px 	#E8E8E8  solid",height:"4rem",width:"4rem",borderRadius:"5px",borderTop:"0px",boxShadow:"2px 0px 5px #E0E0E0 ",marginLeft:"70rem",marginTop:"-2px",backgroundColor:"whilte"}}> */}
-
+   
     <div className="drpdwn"> 
 <div className="drpdwn-child" onClick={()=>{navigate("/Home/Profile", { replace: true })}} >Profile</div>
 <div className="drpdwn-child" onClick={()=>{

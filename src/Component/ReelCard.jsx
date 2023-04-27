@@ -18,10 +18,6 @@ import CommentCard from "./CommentCard";
 
 
 export default function ReelCard(props) {
-
-
-
-
   useEffect(() => {
     let options = {
       root: document.querySelector(".videos"),
@@ -38,8 +34,7 @@ export default function ReelCard(props) {
           entry.target.querySelector("video").play()
          
           entry.target.querySelector("video").muted=false
-          console.log(entry.target.querySelector("video").muted)
-     
+          
         }
         else
         {
@@ -95,6 +90,11 @@ export default function ReelCard(props) {
       bottom: "0.5rem",
       left: "1rem"
     },
+    likeCount: {
+      position: "absolute",
+      bottom: "0.4rem",
+      left: "1rem"
+    },
     hjhj: {
       scrollSnapAlign: "start",
       borderRadius: "0px !important",
@@ -130,9 +130,14 @@ export default function ReelCard(props) {
         <Typography className={classes.userName} level="h2" fontSize="lg" textColor="#fff" mb={1}>
           {props.postData.userName}
         </Typography>
-        <Button className="lkebtn" disableRipple variant="outlined" onClick={() => { props.postLike(props.postData.pid) }}>
+        <Button className="lkebtn" disableRipple variant="outlined" onClick={(e) => { 
+          e.stopPropagation();
+          props.postLike(props.postData.pid) }}>
           {props.postData.like.includes(userDetails.userDetails.uid) ? <FavoriteIcon style={{ color: "red" }} /> : <FavoriteBorderIcon />}
         </Button>
+       <p className='likeCount'>
+          {`${props.postData.like.length}`}
+          </p>  
         <Button className="cmntbtn" disableRipple variant="outlined" onClick={cmntBtnClick}><ModeCommentIcon /></Button>
       </CardContent>
 

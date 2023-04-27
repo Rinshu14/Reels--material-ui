@@ -49,8 +49,7 @@ function CommentCard(props) {
         tempPost.sort(function (x, y) {
           return y.time - x.time;
         })
-        //  if(chngState=true){
-          console.log(tempPost)
+        
         SetprevCommetnsCollection([...tempPost])
       }
       );

@@ -11,8 +11,7 @@ import { makeStyles } from '@mui/styles';
 import userContext from "../Context/userContext";
 
 export default function FormDialog(props) {
-    // console.log("in gtgt=="+props.flag)
-//   const [open, setOpen] = React.useState(false);
+  
   const[userEmail,setUserEmail]=useState("")
   const userDeatils=useContext(userContext)
  
@@ -46,9 +45,7 @@ alert("Password reset link sent!");
     const classes=useStyles();
   return (
     <div>
-      {/* <Button variant="outlined" onClick={handleClickOpen}>
-        Open form dialog
-      </Button> */}
+    
       <Dialog open={props.flag} onClose={()=>{}}>
         <DialogTitle  style={{textAlign:"center" ,fontSize:"2rem"}} > Reset Your Password </DialogTitle>
         <DialogContent>
@@ -70,7 +67,7 @@ alert("Password reset link sent!");
             error={(userEmail!="")?!(validator.isEmail(userEmail)):false}
 
             onChange={(e)=>{setUserEmail(e.target.value)}}
-        //   style={{border:"#5F9EA0"}}
+        
           />
         </DialogContent>
         <DialogActions>

@@ -9,7 +9,6 @@ import userContext from '../Context/userContext';
 import { v4 as uuid } from 'uuid';
 import { getStorage, ref ,uploadBytes,getDownloadURL,uploadBytesResumable} from "firebase/storage";
 import LinearProgress, { LinearProgressProps } from '@mui/material/LinearProgress';
-// import LinearProgress from '@mui/material/LinearProgress';
 
 function Upload(){
 

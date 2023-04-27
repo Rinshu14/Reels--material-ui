@@ -52,21 +52,11 @@ await setDoc(doc(database, "comments",`${cmntId}`), {
       comment:[...path.comment,cmntId]
      },{ merge: true });
 
-    // document.querySelector(".text").innerText="Type something ..."
+  
    
   }
 
-//   async function postLike(Pid)
-// {
-//  console.log("pid=="+Pid)
 
-//  let idx=postCollection.findIndex((post)=>(post.pid==Pid))
-
-// await setDoc(doc(database, "posts",`${userDeatils.userDetails.uid+postCollection[idx].name}`), {
-//    like:[...postCollection[idx].like,userDeatils.userDetails.uid]
-// },{ merge: true });
-// }
-// ,bottom:"11.5rem"
     return(
         <>
         <div className="new_cmnt"style={{display:"flex",position:"fixed" ,backgroundColor:"white",bottom:"8.8rem" }}>

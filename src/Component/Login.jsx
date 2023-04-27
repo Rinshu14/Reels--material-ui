@@ -25,11 +25,7 @@ var pswdRglrExpn = /^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[a-zA-Z0-9
 
 
 
-// let  lgnClick=()=>{
-//   console.log("login click")
-//   userDeatils.signIn(userEmail,password);
- 
-// };
+
 
  let Login=()=>{
 
@@ -139,9 +135,7 @@ const handleClickOpen = () => {
        
        
         <Button  fullWidth variant="contained" onClick={
-          //()=>{
-           // console.log("login click")
-       //userDeatils.signIn(userEmail,password);}
+         
 
     lgnClick}
        >Login</Button>

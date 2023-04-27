@@ -1,8 +1,7 @@
 .commentCard
 {  z-index: 10;
       width:24.5rem;
-      /* display:flex;
-      flex-direction:column-reverse; */
+     
      
       background-color:		rgb(255,255,255);
       overflow: hidden;
@@ -17,9 +16,7 @@
       border:2px 	 solid #E8E8E8 ; 
       
 }
-/* .commentCard::-webkit-scrollbar{
-    display: none;
-  } */
+
   .divx
   {
       height: 200px;

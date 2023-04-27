@@ -44,12 +44,12 @@ useEffect(()=>{
 
 async function postLike(Pid)
 {
-
- let idx=postCollection.findIndex((post)=>(post.pid==Pid))
  
+ let idx=postCollection.findIndex((post)=>(post.pid==Pid))
+ if(!postCollection[idx].like.includes(userDeatils.userDetails.uid)){
  await setDoc(doc(database, "posts",`${postCollection[idx].userId+postCollection[idx].name}`), {
  like:[...postCollection[idx].like,userDeatils.userDetails.uid]
-},{ merge: true });
+},{ merge: true });}
 }
 
 

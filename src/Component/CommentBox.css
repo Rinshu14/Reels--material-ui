@@ -1,6 +1,6 @@
 .commentText
 {
-    /* color:#D0D0D0 !important; */
+   
  
     color:#888888 !important;
     display:flex;
@@ -8,10 +8,10 @@
     height:1.5rem;
     margin: 7px;
     
-    /* //font-family: serif; */
+ 
     border: 2px solid #7393B3 !important;
     border-radius: 7px !important;
-    /* justify-content: flex-end; */
+   
     align-items:center; 
     padding: 2.5px;
     padding-left: 5px;
@@ -20,7 +20,7 @@
     overflow: hidden;
     word-break: break-word;
 
-    /* font-family: Rubik Pixels; */
+
   
 }
 

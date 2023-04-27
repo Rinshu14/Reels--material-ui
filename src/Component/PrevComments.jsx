@@ -13,18 +13,13 @@ function PrevComments(props)
 
 
 {
-  // console.log(props.idx)
-  // let bo=(props.idx==0)?{bottom:"5rem"}:{bottom:"0px"}
-  // console.log(bo)
-  const userDetails=useContext(userContext)
-  // let marginR={marginLeft:"80px"}
- 
- //console.log((window.getComputedStyle(document.querySelector(".PrevcommentText")).width))
-  // let marginL=(userDetails.userDetails.uid==props.userId)?{marginRight:"7px"}:{marginLeft:"7px"}
+
+ // const userDetails=useContext(userContext)
+  
   
     return(
         <>
-        <div className="bngh" style={{display:"flex" }}>
+        <div  style={{display:"flex" }}>
         <div  className="PrevcommentText" key={props.pid} style={props.flag?{marginLeft:"9rem"}:{}}  ><img src={props.profImg} style={{borderRadius:"50%",height:"1.5rem",width:"1.8rem"}}></img> <p style={{paddingLeft:"5px"}}>{props.comment}</p>
         </div>
           
