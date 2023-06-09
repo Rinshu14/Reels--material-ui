@@ -10,6 +10,8 @@ https://reels-new-fae3e.web.app/
 ## Technology-
 
 1- Reactjs and material UI for creating user interface
+3- Context Api for storing data as global to provide user authentication
+4- intersection observer api to play video as soon as it is in viewport
 2- Firebase for managing different user's data and user authentication
 
 ## Features -
@@ -21,5 +23,6 @@ https://reels-new-fae3e.web.app/
 5. Play and pause video on single tap.
 6. Like and comment on anyone post.
 7. profile page where user and see all his posted videos and count of posted video
+8. front-end validations on username and password and on video size.
 
 
